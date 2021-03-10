@@ -54,5 +54,8 @@ func _physics_process(_delta):
 
 
 func start_paddle():
-	if HUD.paddle_appear:
-		pass
+	 if HUD.paddle_appear: 
+		var target_pos = position 
+		position.y = -100 
+		$Tween.interpolate_property(self, "position", position, target_pos, fall_duration, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT) 
+		$Tween.start()
